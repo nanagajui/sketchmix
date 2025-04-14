@@ -33,6 +33,8 @@ SketchMix is an interactive web application that transforms user drawings into A
 - Beatoven.ai API for music generation
 - Sharp for image processing and optimization
 
+![SketchMix Example](SketchMix_Screen.avif)
+
 ## Getting Started
 
 ### Prerequisites
