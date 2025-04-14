@@ -6,12 +6,12 @@
 
 ## Overview
 
-SketchMix is an interactive web application that transforms user drawings into AI-generated cartoon images with matching music based on emotional analysis. This creative platform empowers users to express themselves artistically and receive AI-enhanced interpretations of their work, complete with a musical soundtrack that matches the emotional tone of their creation.
+SketchMix is an interactive web application that transforms user drawings into AI-generated art images with matching music based on emotional analysis. This creative platform empowers users to express themselves artistically and receive AI-enhanced interpretations of their work, complete with a musical soundtrack that matches the emotional tone of their creation.
 
 ## Features
 
 - **Interactive Drawing Canvas**: Create drawings using an intuitive brush tool with customizable size and color options
-- **AI Image Generation**: Transform simple sketches into detailed, professional cartoon-style images using OpenAI's DALL-E models
+- **AI Image Generation**: Transform simple sketches into detailed, professional artistic-style images using OpenAI's DALL-E models
 - **Emotional Analysis**: Analyze the emotional context and mood of generated images
 - **Music Generation**: Create custom music tracks that match the emotional tone of your artwork using Beatoven.ai
 - **Creation Gallery**: Browse, view, and download your saved creations
