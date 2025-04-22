@@ -1,8 +1,0 @@
-Interactive Drawing-to-Media Generator
-Overview
-A creative web application that enables users to:
-1.	Draw on a canvas using mouse/touch input
-2.	Transform their drawings into AI-generated cartoon images
-3.	Extract emotional context from the generated images
-4.	Generate music that matches the emotional tone
-5.	Experience a complete multi-modal creative output from a simple drawing input
