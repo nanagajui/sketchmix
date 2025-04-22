@@ -1,14 +1,13 @@
 import { defineConfig } from "drizzle-kit";
+import { getDatabaseConfig } from "./config/database";
 
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL, ensure the database is provisioned");
-}
+const dbConfig = getDatabaseConfig();
 
 export default defineConfig({
   out: "./migrations",
   schema: "./shared/schema.ts",
   dialect: "postgresql",
   dbCredentials: {
-    url: process.env.DATABASE_URL,
+    url: dbConfig.url,
   },
 });
