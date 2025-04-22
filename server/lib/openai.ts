@@ -1,9 +1,11 @@
 import OpenAI from "openai";
+import { config } from "../config";
 import { EmotionData } from "@shared/schema";
 import sharp from "sharp";
 
+const openai = new OpenAI({ apiKey: config.openai.apiKey });
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
 
 // Generate artistic image from drawing
 export async function generateImage(drawingBase64: string): Promise<{ imageUrl: string }> {

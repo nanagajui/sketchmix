@@ -5,7 +5,7 @@ This guide will help you set up the SketchMix application locally or for deploym
 ## Prerequisites
 
 - Node.js v16+ and npm
-- PostgreSQL database
+- PostgreSQL database (or any supported database with Drizzle ORM)
 - OpenAI API key
 - Beatoven.ai API key
 
@@ -29,8 +29,14 @@ This guide will help you set up the SketchMix application locally or for deploym
    # Edit .env with your editor of choice
    ```
 
+   Configure your database connection in the `.env` file:
+   ```
+   DATABASE_URL=postgresql://username:password@localhost:5432/sketchmix
+   # For other database types, use the appropriate connection string format
+   ```
+
 4. **Set up the database**
-   First, ensure your PostgreSQL server is running and you have created a database. Then push the schema to the database:
+   First, ensure your database server is running and you have created a database. Then push the schema to the database:
    ```bash
    npm run db:push
    ```
@@ -43,14 +49,19 @@ This guide will help you set up the SketchMix application locally or for deploym
 6. **Access the application**
    Open your browser and navigate to `http://localhost:5000`
 
-## Database Schema
+## Database Configuration
 
-The application uses the following database schema:
+The application uses Drizzle ORM which supports multiple database types. You can configure your preferred database by:
 
-- **Users table**: Stores user information
-- **Creations table**: Stores drawing data, generated images, emotional analysis, and music URLs
+1. Setting the appropriate `DATABASE_URL` in your `.env` file
+2. Installing the corresponding database driver package
+3. Updating the database configuration in `server/db/index.ts`
 
-The schema is defined in `shared/schema.ts` and managed through Drizzle ORM.
+Supported databases include:
+- PostgreSQL (recommended)
+- MySQL
+- SQLite
+- SQL Server
 
 ## API Keys
 
@@ -81,7 +92,7 @@ NODE_ENV=production npm run db:push
 
 ### Environment Configuration
 
-When deploying to services like Vercel, Netlify, or Heroku, make sure to set the following environment variables in your deployment platform:
+When deploying, make sure to set the following environment variables:
 
 - `DATABASE_URL`
 - `OPENAI_API_KEY`
@@ -107,8 +118,9 @@ npm start
 
 If you encounter database connection problems, check:
 - Database credentials are correct in `.env`
-- PostgreSQL server is running and accessible
+- Database server is running and accessible
 - Firewall settings allow connections to the database
+- The correct database driver is installed
 
 ### API Rate Limiting
 

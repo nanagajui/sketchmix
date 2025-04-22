@@ -28,7 +28,7 @@ SketchMix is an interactive web application that transforms user drawings into A
 
 ### Backend
 - Express.js server
-- PostgreSQL database with Drizzle ORM
+- Database-agnostic architecture with Drizzle ORM
 - OpenAI API for image generation and analysis
 - Beatoven.ai API for music generation
 - Sharp for image processing and optimization
@@ -40,7 +40,7 @@ SketchMix is an interactive web application that transforms user drawings into A
 ### Prerequisites
 
 - Node.js (v16+)
-- PostgreSQL database
+- Database (PostgreSQL recommended, but supports multiple database types)
 - OpenAI API key
 - Beatoven.ai API key
 
@@ -50,6 +50,7 @@ Create a `.env` file in the root directory with the following variables:
 
 ```
 DATABASE_URL=postgresql://username:password@localhost:5432/sketchmix
+# For other database types, use the appropriate connection string format
 OPENAI_API_KEY=your_openai_api_key
 BEATOVEN_API_KEY=your_beatoven_api_key
 ```
@@ -104,7 +105,7 @@ npm run dev
 The application follows a modern client-server architecture:
 
 - **Client**: React-based SPA with component-based UI and state management
-- **Server**: Express.js REST API with PostgreSQL database for persistence
+- **Server**: Express.js REST API with database-agnostic persistence layer
 - **AI Integration**: OpenAI for image generation and Beatoven.ai for music composition
 
 ### Data Flow
@@ -137,12 +138,19 @@ The image generation uses OpenAI's DALL-E 3 model with custom prompting to ensur
 
 Music is generated using Beatoven.ai's API, which creates custom tracks based on emotional descriptions. The system translates the emotional analysis into music attributes and genres to produce appropriate soundtracks.
 
-### Database Schema
+### Database Configuration
 
-The application uses a PostgreSQL database with the following schema:
+The application uses Drizzle ORM which supports multiple database types. You can configure your preferred database by:
 
-- **Users**: Store user information
-- **Creations**: Store drawings, generated images, emotional analysis, and music URLs
+1. Setting the appropriate `DATABASE_URL` in your `.env` file
+2. Installing the corresponding database driver package
+3. Updating the database configuration in `server/db/index.ts`
+
+Supported databases include:
+- PostgreSQL (recommended)
+- MySQL
+- SQLite
+- SQL Server
 
 ## Contributing
 
